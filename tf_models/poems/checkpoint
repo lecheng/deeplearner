@@ -1,0 +1,6 @@
+model_checkpoint_path: "/Users/chengle/PycharmProjects/rnn/checkpoints/poems/poems-48"
+all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/rnn/checkpoints/poems/poems-24"
+all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/rnn/checkpoints/poems/poems-30"
+all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/rnn/checkpoints/poems/poems-36"
+all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/rnn/checkpoints/poems/poems-42"
+all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/rnn/checkpoints/poems/poems-48"
