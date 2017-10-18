@@ -16,4 +16,4 @@ def run_poem(is_train=True):
             print_poem(poem)
 
 if __name__ == '__main__':
-    run_poem(is_train=False)
+    run_poem(is_train=True)

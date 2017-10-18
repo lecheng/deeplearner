@@ -1,3 +1,2 @@
 model_checkpoint_path: "/Users/chengle/PycharmProjects/deeplearner/settings/../checkpoints/poems/poems-1"
-all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/deeplearner/settings/../checkpoints/poems/poems-0"
 all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/deeplearner/settings/../checkpoints/poems/poems-1"

@@ -13,6 +13,11 @@ class BasicConfig(object):
     UTIL_ROOT = os.path.join(PROJECT_ROOT, 'utils')
     TF_MODELS_ROOT = os.path.join(PROJECT_ROOT, 'tf_models')
     CHECKPOINTS_ROOT = os.path.join(PROJECT_ROOT, 'checkpoints')
+    LOG_LEVLE = 2
+    # LOG_LEVEL:
+    # |-- 0 - Only record error messages
+    # |-- 1 - Record errors and warnings
+    # |-- 2 - All available messages are recorded
 
 class TCCNNConfig(object):
     """
