@@ -79,8 +79,8 @@ class MatrixFactorization(object):
                 loss, _, R = sess.run([self.loss, self.train_op, self.R], feed_dict={self.users_indices: users,
                                         self.items_indices: items, self.rates: rates})
                 self.logger.info('iteration: {0}, training loss: {1}'.format(epoch, loss))
-                self.logger.info('R shape: {0} R: {1}'.format(R.shape, R))
-                self.logger.info('rates shape: {0} rates: {1}'.format(rates.shape, rates))
+                # self.logger.info('R shape: {0} R: {1}'.format(R.shape, R))
+                # self.logger.info('rates shape: {0} rates: {1}'.format(rates.shape, rates))
                 # if epoch % 6 == 0:
                 #     saver.save(sess, self.config.model_dir, global_step= epoch)
         except KeyboardInterrupt:
