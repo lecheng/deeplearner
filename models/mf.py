@@ -33,9 +33,6 @@ class MatrixFactorization(object):
         # self.Q = tf.get_variable('Q', [D, K], tf.float32, initializer=tf.contrib.layers.xavier_initializer())
         self.P = tf.Variable(initial_value=tf.truncated_normal([U, K]), name='users')
         self.Q = tf.Variable(initial_value=tf.truncated_normal([D, K]), name='items')
-        self.users_indices = tf.placeholder(tf.int32, [None])
-        self.items_indices = tf.placeholder(tf.int32, [None])
-        self.rates = tf.placeholder(tf.float32, [None])
         self._build()
 
     def _build(self):
@@ -47,6 +44,9 @@ class MatrixFactorization(object):
         # # ensure the elements in P and Q are non-negative
         # self.P = self.P.assign(tf.maximum(tf.zeros_like(self.P, tf.float32), self.P))
         # self.Q = self.Q.assign(tf.maximum(tf.zeros_like(self.Q, tf.float32), self.Q))
+        self.users_indices = tf.placeholder(tf.int32, [None])
+        self.items_indices = tf.placeholder(tf.int32, [None])
+        self.rates = tf.placeholder(tf.float32, [None])
         self.logits_matrix = tf.matmul(self.P, self.Q, transpose_b=True)
         self.logits_matrix_flatten = tf.reshape(self.logits_matrix, [-1])
         self.R = tf.gather(self.logits_matrix_flatten, self.users_indices *tf.shape(self.logits_matrix)[1] + self.items_indices)
@@ -82,7 +82,7 @@ class MatrixFactorization(object):
                 # self.logger.info('R shape: {0} R: {1}'.format(R.shape, R))
                 # self.logger.info('rates shape: {0} rates: {1}'.format(rates.shape, rates))
                 # if epoch % 6 == 0:
-                #     saver.save(sess, self.config.model_dir, global_step= epoch)
+            saver.save(sess, self.config.model_dir, global_step= epoch)
         except KeyboardInterrupt:
             self.logger.error('Interrupt manually, try saving checkpoint for now...')
             saver.save(sess, self.config.model_dir, global_step=epoch)

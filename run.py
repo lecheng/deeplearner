@@ -31,7 +31,7 @@ def run_mf():
 
     users_indices_val = [x - 1 for x in df_val.user.values]
     items_indices_val = [x - 1 for x in df_val.item.values]
-    rates_val = df_train.rate.values
+    rates_val = df_val.rate.values
 
     model = MatrixFactorization(MatrixFactorizationConfig)
     with tf.Session() as sess:
@@ -40,7 +40,18 @@ def run_mf():
         predict = model.predict(sess, users_indices_val, items_indices_val)
         for i in range(len(users_indices_val)):
             print('User: {0}, Item: {1}, Original rate: {2}, Predicted rate: {3}'\
-                  .format(users_indices_val[i], items_indices_val[i], rates_val[i], predict[i]))
+                  .format(users_indices_val[i], items_indices_val[i], rates_val[i], predict[0][i]))
+
+def mf_predict():
+    model = MatrixFactorization(MatrixFactorizationConfig)
+    sess = tf.Session()
+    while True:
+        user_id = raw_input('input the index of user:')
+        item_id = raw_input('input the index of item:')
+        predict = model.predict(sess, [user_id], [item_id])
+        print('User: {0}, Item: {1}, Predicted rate: {2}'.format(user_id, item_id, predict[0][0]))
+
 if __name__ == '__main__':
     # run_poem(is_train=True)
-    run_mf()
+    # run_mf()
+    mf_predict()

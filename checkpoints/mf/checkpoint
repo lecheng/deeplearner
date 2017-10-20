@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/chengle/PycharmProjects/deeplearner/settings/../checkpoints/mf/mf-999"
+all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/deeplearner/settings/../checkpoints/mf/mf-999"

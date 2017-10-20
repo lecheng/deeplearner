@@ -55,7 +55,7 @@ class MatrixFactorizationConfig(object):
     configuration for matrix factorization model
     """
     learning_rate = 2e-2
-    epochs = 3000
+    epochs = 1000
     max_users_num = 943
     max_items_num = 1682
     decay_rate = 1.0
