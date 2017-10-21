@@ -4,6 +4,7 @@ import pandas as pd
 
 from models.rnn import *
 from models.mf import *
+from models.prod2vec import *
 from utils.utils import *
 from settings.config import *
 import numpy as np
@@ -51,7 +52,16 @@ def mf_predict():
         predict = model.predict(sess, [user_id], [item_id])
         print('User: {0}, Item: {1}, Predicted rate: {2}'.format(user_id, item_id, predict[0][0]))
 
+def run_prod2vec(is_train=True):
+    model = Prod2Vec(ProductToVectorConfig)
+    sess = tf.Session()
+    if is_train:
+        model.train(sess)
+    else:
+        model.evaluate(sess)
+
 if __name__ == '__main__':
     # run_poem(is_train=True)
     # run_mf()
-    mf_predict()
+    # mf_predict()
+    run_prod2vec(is_train=False)

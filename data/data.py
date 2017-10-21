@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-
-import codecs
+import pandas
 from collections import Counter
 
 def process_poem(file_path):
@@ -53,6 +52,8 @@ def process_poem(file_path):
     poems_vector = [list(map(lambda word: word_to_index.get(word, len(words)), poem)) for poem in poems]
     print(len(poems_vector))
     return poems_vector, word_to_index, words
+
+
 
 if __name__ == '__main__':
     process_poem('poems/poems.txt')

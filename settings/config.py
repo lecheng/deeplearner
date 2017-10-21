@@ -62,3 +62,20 @@ class MatrixFactorizationConfig(object):
     data_file = os.path.join(BasicConfig.DATA_ROOT, 'mf/u.data')
     checkpoints_dir = os.path.join(BasicConfig.CHECKPOINTS_ROOT, 'mf')
     model_dir = os.path.join(checkpoints_dir, 'mf')
+
+class ProductToVectorConfig(object):
+    """
+    configuration for prod2vec
+    """
+    learning_rate = 2e-2
+    steps = 100001
+    max_users_num = 4373
+    max_items_num = 4070
+    batch_size = 128
+    num_sampled = 64        # Number of negative examples to sample.
+    embedding_size = 128    # Dimension of the embedding vector.
+    skip_window = 1         # How many words to consider left and right.
+    num_skips = 2           # How many times to reuse an input to generate a label.
+    data_file = os.path.join(BasicConfig.DATA_ROOT, 'prod2vec/data.csv')
+    checkpoints_dir = os.path.join(BasicConfig.CHECKPOINTS_ROOT, 'prod2vec')
+    model_dir = os.path.join(checkpoints_dir, 'prod2vec')

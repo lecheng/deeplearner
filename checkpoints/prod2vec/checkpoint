@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/chengle/PycharmProjects/deeplearner/settings/../checkpoints/prod2vec/prod2vec-100000"
+all_model_checkpoint_paths: "/Users/chengle/PycharmProjects/deeplearner/settings/../checkpoints/prod2vec/prod2vec-100000"
