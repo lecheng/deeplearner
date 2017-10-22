@@ -17,6 +17,6 @@ Self projects of deep learning
     
     reference:
     
-    [E-commerce in Your Inbox: Product Recommendations at Scale](https://astro.temple.edu/~tuc17157/pdfs/grbovic2015kddB.pdf)
+    [Grbovic, Mihajlo, et al. "E-commerce in your inbox: Product recommendations at scale." Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining. ACM, 2015.](https://astro.temple.edu/~tuc17157/pdfs/grbovic2015kddB.pdf)
     
-    [Distributed Representations of Sentences and Documents](https://cs.stanford.edu/~quocle/paragraph_vector.pdf)
+    [Le, Quoc, and Tomas Mikolov. "Distributed representations of sentences and documents." Proceedings of the 31st International Conference on Machine Learning (ICML-14). 2014.](https://cs.stanford.edu/~quocle/paragraph_vector.pdf)
