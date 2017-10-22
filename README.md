@@ -12,3 +12,4 @@ Self projects of deep learning
 3. product to vector
 
     dataset [UCI Online Retail Data Set](http://archive.ics.uci.edu/ml/datasets/online+retail)
+    paper [E-commerce in Your Inbox: Product Recommendations at Scale](https://astro.temple.edu/~tuc17157/pdfs/grbovic2015kddB.pdf)
