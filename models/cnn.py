@@ -20,7 +20,7 @@ class TextClassificationCNN(object):
 
     def _data_process(self):
         self.x_train, self.y_train, self.x_test, self.y_test,\
-            self.x_val, self.y_val, self.words = thucnews.preocess_file(self.config.data_dir)
+            self.x_val, self.y_val, self.words = thucnews.preocess_file(self.config.data_dir, self.config.text_length)
 
     def _build(self):
 
@@ -29,7 +29,7 @@ class TextClassificationCNN(object):
                                 -1.0, 1.0), name='embedding')
             embeded = tf.nn.embedding_lookup(embedding, self.input_x)
 
-        conv = tf.layers.conv1d(embeded, self.config.filters_num, self.config.kernel_size, activation=tf.nn.relu, name='conv')
+        conv = tf.layers.conv1d(embeded, self.config.filters_num, self.config.kernel_size, activation=None, name='conv')
         self.logger.info('conv shape {0}'.format(conv.shape))
         gmp = tf.reduce_max(conv, reduction_indices=[1], name='gmp')
         self.logger.info('gmp shape {0}'.format(gmp.shape))
@@ -52,6 +52,8 @@ class TextClassificationCNN(object):
         optimizer = tf.train.AdamOptimizer(self.config.learning_rate)
         self.train_op = optimizer.minimize(self.total_loss)
         correct_pred = tf.equal(self.input_y, self.predict_y)
+        self.logger.info('input_y shape {0}'.format(self.input_y.shape))
+        self.logger.info('predict_y shape {0}'.format(self.predict_y.shape))
         self.accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
     def train(self, sess):
@@ -83,11 +85,12 @@ class TextClassificationCNN(object):
                     end_index = (i + 1) * self.config.batch_size
                     x_train = shuffled_x_train[start_index:end_index]
                     y_train = shuffled_y_train[start_index:end_index]
-                    loss, _ = sess.run([
+                    loss, _, accuracy = sess.run([
                         self.total_loss,
-                        self.train_op
+                        self.train_op,
+                        self.accuracy
                     ], feed_dict = {self.input_x: x_train, self.input_y: y_train, self.keep_prob: self.config.keep_prob})
-                    self.logger.info('Epoch: {0}, iteration: {1}, training loss: {2}'.format(epoch, i, loss))
+                    self.logger.info('Epoch: {0}, iteration: {1}, training loss: {2}, training accuracy: {3}'.format(epoch, i, loss, accuracy))
                 if (epoch+1) % 6 == 0:
                     saver.save(sess, self.config.model_dir, global_step= epoch)
         except KeyboardInterrupt:

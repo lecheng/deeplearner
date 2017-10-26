@@ -74,4 +74,4 @@ if __name__ == '__main__':
     # run_mf()
     # mf_predict()
     # run_prod2vec(is_train=False)
-    run_cnnclassify(is_train=False)
+    run_cnnclassify(is_train=True)

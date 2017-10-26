@@ -24,14 +24,14 @@ class TCCNNConfig(object):
     configuration for text classification cnn model
     """
     learning_rate = 1e-3
-    embedding_size = 128
+    embedding_size = 64
     class_num = 14
-    vocab_size = 7000
+    vocab_size = 5000
     epochs = 12
     filters_num = 256
     kernel_size = 5
     hidden_dim = 128
-    text_length = 100
+    text_length = 600
     batch_size = 128
     keep_prob = 0.7
     data_dir = os.path.join(BasicConfig.DATA_ROOT, 'classification/cnews')
