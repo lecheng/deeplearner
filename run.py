@@ -5,6 +5,7 @@ import pandas as pd
 from models.rnn import *
 from models.mf import *
 from models.prod2vec import *
+from models.cnn import *
 from utils.utils import *
 from settings.config import *
 import numpy as np
@@ -60,8 +61,17 @@ def run_prod2vec(is_train=True):
     else:
         model.evaluate(sess)
 
+def run_cnnclassify(is_train=True):
+    model = TextClassificationCNN(TCCNNConfig)
+    sess = tf.Session()
+    if is_train:
+        model.train(sess)
+    else:
+        model.evaluate(sess)
+
 if __name__ == '__main__':
     # run_poem(is_train=True)
     # run_mf()
     # mf_predict()
-    run_prod2vec(is_train=False)
+    # run_prod2vec(is_train=False)
+    run_cnnclassify(is_train=False)

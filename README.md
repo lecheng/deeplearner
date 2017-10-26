@@ -1,5 +1,5 @@
 # deeplearner
-Self projects of deep learning
+Self projects of deep learning by tensorflow
 
 1. poem generation
 
@@ -13,7 +13,7 @@ Self projects of deep learning
 
     Implement prod2vec and user2vec given transaction log.
 
-    dataset [UCI Online Retail Data Set](http://archive.ics.uci.edu/ml/datasets/online+retail)
+    dataset: [UCI Online Retail Data Set](http://archive.ics.uci.edu/ml/datasets/online+retail)
     
     reference:
     
